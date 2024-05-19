@@ -11,7 +11,7 @@ import org.graphstream.ui.view.Viewer;
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class bk {
     public static void main(String[] args) {
-        
+        System.out.println(“Hello, World!”);        
     }
     
     // Define the style sheet
