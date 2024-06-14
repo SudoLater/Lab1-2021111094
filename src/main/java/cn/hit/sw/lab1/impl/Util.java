@@ -8,7 +8,7 @@ import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class util {
+public class Util {
     public static MyGraph getGraphFromFile(File file) throws FileNotFoundException {
         System.setProperty("org.graphstream.ui", "swing");
         // 用于存储文件内容的字符串

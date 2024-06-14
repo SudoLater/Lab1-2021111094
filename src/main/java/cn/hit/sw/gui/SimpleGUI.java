@@ -2,7 +2,7 @@ package cn.hit.sw.gui;
 
 import cn.hit.sw.lab1.Generator;
 import cn.hit.sw.lab1.impl.GeneratorImpl;
-import cn.hit.sw.lab1.impl.util;
+import cn.hit.sw.lab1.impl.Util;
 
 import javax.swing.*;
 import java.awt.*;
@@ -60,7 +60,7 @@ public class SimpleGUI extends JFrame {
                     // 获取选择的文件路径
                     String selectedPath = fileChooser.getSelectedFile().getPath();
                     try {
-                        generator = new GeneratorImpl(util.getGraphFromFile(new File(selectedPath)));
+                        generator = new GeneratorImpl(Util.getGraphFromFile(new File(selectedPath)));
                         JOptionPane.showMessageDialog(null, "有向图初始化成功.");
                     } catch (FileNotFoundException ex) {
                         JOptionPane.showMessageDialog(null, "未知错误!");

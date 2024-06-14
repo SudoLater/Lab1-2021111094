@@ -19,7 +19,8 @@ public class GeneratorImpl implements Generator {
     MyGraph graph;
     private Node current;
     private Set<Edge> visitedEdges;
-    
+    Random random = new Random();
+
     public GeneratorImpl(MyGraph graph) {
         this.graph = graph;
     }
@@ -27,7 +28,7 @@ public class GeneratorImpl implements Generator {
     public MyGraph getGraph() {
         return this.graph;
     }
-    
+
     @Override
     public void showDirectedGraph(MyGraph g) {
         for (Edge edge : graph.edges().toList()) {
@@ -41,8 +42,8 @@ public class GeneratorImpl implements Generator {
     }
 
     /** 输入的word1或word2如果不在图中出现，则输出“No word1 or word2 in the graph!”
-      * 如果不存在桥接词，则输出“No bridge words from word1 to word2!”
-      * 如果存在一个或多个桥接词，则输出“The bridge words from word1 to word2 are: xxx, xxx, and xxx.”
+     * 如果不存在桥接词，则输出“No bridge words from word1 to word2!”
+     * 如果存在一个或多个桥接词，则输出“The bridge words from word1 to word2 are: xxx, xxx, and xxx.”
      **/
     @Override
     public String queryBridgeWords(String word1, String word2) {
@@ -52,7 +53,7 @@ public class GeneratorImpl implements Generator {
         List<String> stringList = queryBridgeWordsLists(word1, word2);
 
         if(stringList.isEmpty()) {
-            return "No bridge words from " + word1 +" to "+word2 + "!\n";
+            return "No bridge words from " + word1 + " to " + word2 + "!";
         }
         StringBuilder stringBuilder = new StringBuilder();
         stringBuilder.append("The bridge words from ").append(word1).append(" to ").append(word2).append(" are:");
@@ -91,7 +92,6 @@ public class GeneratorImpl implements Generator {
 
     @Override
     public String generateNewText(String inputText) {
-        Random random = new Random();
         String[] words = inputText.toLowerCase().split(" ");
         StringBuilder stringBuilder = new StringBuilder();
 
@@ -195,7 +195,7 @@ public class GeneratorImpl implements Generator {
 
     @Override
     public void randomWalk() {
-        Random random = new Random();
+
 
         current = graph.getNode(random.nextInt(graph.getNodeCount()));
         visitedEdges = new HashSet<>();
