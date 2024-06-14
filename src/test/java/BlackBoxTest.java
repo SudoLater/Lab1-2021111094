@@ -11,8 +11,8 @@ public class BlackBoxTest {
         graph.addNode("a");
         graph.addNode("b");
         graph.addNode("c");
-        graph.addEdge("a-b", "a", "b");
-        graph.addEdge("b-c", "b", "c");
+        graph.addEdge("a-b", "a", "b", true);
+        graph.addEdge("b-c", "b", "c", true);
 
         String result = new GeneratorImpl(graph).queryBridgeWords("a", "c");
         assertEquals("The bridge words from a to c are:b.", result);
@@ -26,9 +26,9 @@ public class BlackBoxTest {
         graph.addNode("b");
         graph.addNode("d");
         graph.addNode("e");
-        graph.addEdge("a-b", "a", "b");
-        graph.addEdge("b-d", "b", "d");
-        graph.addEdge("d-e", "d", "e");
+        graph.addEdge("a-b", "a", "b", true);
+        graph.addEdge("b-d", "b", "d", true);
+        graph.addEdge("d-e", "d", "e", true);
 
         String result = new GeneratorImpl(graph).queryBridgeWords("a", "e");
         assertEquals("No bridge words from a to e!", result);
@@ -42,10 +42,10 @@ public class BlackBoxTest {
         graph.addNode("b");
         graph.addNode("d");
         graph.addNode("c");
-        graph.addEdge("a-b", "a", "b");
-        graph.addEdge("a-d", "a", "d");
-        graph.addEdge("b-c", "b", "c");
-        graph.addEdge("d-c", "d", "c");
+        graph.addEdge("a-b", "a", "b", true);
+        graph.addEdge("a-d", "a", "d", true);
+        graph.addEdge("b-c", "b", "c", true);
+        graph.addEdge("d-c", "d", "c", true);
 
         String result = new GeneratorImpl(graph).queryBridgeWords("a", "c");
         assertEquals("The bridge words from a to c are:b, and d.", result);
@@ -57,7 +57,7 @@ public class BlackBoxTest {
         MyGraph graph = new MyGraph("testWord1EqualsWord2");
         graph.addNode("a");
         graph.addNode("b");
-        graph.addEdge("a-b", "a", "b");
+        graph.addEdge("a-b", "a", "b", true);
 
         String result = new GeneratorImpl(graph).queryBridgeWords("a", "a");
         assertEquals("No bridge words from a to a!", result);
@@ -69,7 +69,7 @@ public class BlackBoxTest {
         MyGraph graph = new MyGraph("testWord1NotFound");
         graph.addNode("b");
         graph.addNode("c");
-        graph.addEdge("b-c", "b", "c");
+        graph.addEdge("b-c", "b", "c", true);
 
         String result = new GeneratorImpl(graph).queryBridgeWords("a", "c");
         assertEquals("No word1 or word2 in the graph!", result);
@@ -81,7 +81,7 @@ public class BlackBoxTest {
         MyGraph graph = new MyGraph("testWord2NotFound");
         graph.addNode("a");
         graph.addNode("b");
-        graph.addEdge("a-b", "a", "b");
+        graph.addEdge("a-b", "a", "b", true);
 
         String result = new GeneratorImpl(graph).queryBridgeWords("a", "d");
         assertEquals("No word1 or word2 in the graph!", result);
@@ -93,7 +93,7 @@ public class BlackBoxTest {
         MyGraph graph = new MyGraph("testWord1AndWord2NotFound");
         graph.addNode("b");
         graph.addNode("c");
-        graph.addEdge("b-c", "b", "c");
+        graph.addEdge("b-c", "b", "c", true);
 
         String result = new GeneratorImpl(graph).queryBridgeWords("x", "y");
         assertEquals("No word1 or word2 in the graph!", result);

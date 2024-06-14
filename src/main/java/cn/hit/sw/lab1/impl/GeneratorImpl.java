@@ -14,6 +14,7 @@ import java.util.*;
 import java.util.List;
 
 
+@SuppressWarnings("checkstyle:Indentation")
 public class GeneratorImpl implements Generator {
 
     MyGraph graph;
@@ -128,7 +129,8 @@ public class GeneratorImpl implements Generator {
         }
         return findShortestPath(this.graph, word1, word2);
     }
-    private String findShortestPath(MyGraph graph, String startWord, String endWord) {
+
+    public String findShortestPath(MyGraph graph, String startWord, String endWord) {
         Map<Node, Integer> distances = new HashMap<>();
         Map<Node, Node> predecessors = new HashMap<>();
         PriorityQueue<Node> queue = new PriorityQueue<>(Comparator.comparingInt(distances::get));
